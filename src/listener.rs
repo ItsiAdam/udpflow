@@ -17,9 +17,9 @@ pub struct UdpListener {
 
 impl UdpListener {
     /// Create from a **bound** udp socket.
-    pub fn new(socket: UdpSocket) -> Self {
+    pub fn new(socket: Arc<UdpSocket>) -> Self {
         Self {
-            socket: Arc::new(socket),
+            socket,
             sockmap: SockMap::new(),
         }
     }
